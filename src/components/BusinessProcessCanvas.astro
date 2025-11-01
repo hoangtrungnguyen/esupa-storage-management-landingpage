@@ -1,0 +1,45 @@
+---
+// No Astro component script for now, Konva will be initialized in client-side script
+---
+
+<div id="konva-container" class="w-full h-96 border border-[var(--color-outline)] rounded-lg bg-white"></div>
+
+<script>
+  import Konva from 'konva';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // const width = document.getElementById('konva-container').offsetWidth;
+    // const height = document.getElementById('konva-container').offsetHeight;
+
+    // const stage = new Konva.Stage({
+    //   container: 'konva-container',
+    //   width: width,
+    //   height: height,
+    // });
+
+    // const layer = new Konva.Layer();
+    // stage.add(layer);
+
+    // const rect = new Konva.Rect({
+    //   x: 50,
+    //   y: 50,
+    //   width: 100,
+    //   height: 50,
+    //   fill: '#0061A4',
+    //   stroke: 'black',
+    //   strokeWidth: 2,
+    // });
+
+    // layer.add(rect);
+    // layer.draw();
+
+    // // Handle resize
+    // window.addEventListener('resize', () => {
+    //   const newWidth = document.getElementById('konva-container').offsetWidth;
+    //   const newHeight = document.getElementById('konva-container').offsetHeight;
+    //   stage.width(newWidth);
+    //   stage.height(newHeight);
+    //   stage.draw();
+    // });
+  });
+</script>

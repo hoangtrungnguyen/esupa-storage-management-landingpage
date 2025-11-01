@@ -1,0 +1,46 @@
+---
+import '../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+	    <meta charset="UTF-8"/>
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title>Storage Management Software</title>
+	</head>
+	<body class="antialiased">
+		<button id="theme-toggle" class="fixed bottom-4 right-4 p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200">
+			Toggle Dark Mode
+		</button>
+		<slot />
+		<script>
+			const themeToggle = document.getElementById('theme-toggle');
+			const htmlElement = document.documentElement;
+
+			if (localStorage.getItem('theme') === 'dark') {
+				htmlElement.classList.add('dark');
+			}
+
+			themeToggle.addEventListener('click', () => {
+				htmlElement.classList.toggle('dark');
+				if (htmlElement.classList.contains('dark')) {
+					localStorage.setItem('theme', 'dark');
+				} else {
+					localStorage.setItem('theme', 'light');
+				}
+			});
+		</script>
+	</body>
+</html>
+
+<style>
+	html,
+	body {
+		margin: 0;
+		width: 100%;
+		height: 100%;
+	}
+</style>
