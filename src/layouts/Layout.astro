@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import LanguagePicker from '../components/LanguagePicker.astro';
 ---
 <!doctype html>
 <html lang="en">
@@ -12,9 +13,12 @@ import '../styles/global.css';
 		<title>Storage Management Software</title>
 	</head>
 	<body class="antialiased">
-		<button id="theme-toggle" class="fixed bottom-4 right-4 p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200">
-			Toggle Dark Mode
-		</button>
+		<div class="fixed bottom-4 right-4 flex items-center space-x-2">
+			<button id="theme-toggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200">
+				Toggle Dark Mode
+			</button>
+			<LanguagePicker />
+		</div>
 		<slot />
 		<script>
 			const themeToggle = document.getElementById('theme-toggle');
@@ -24,7 +28,7 @@ import '../styles/global.css';
 				htmlElement.classList.add('dark');
 			}
 
-			themeToggle.addEventListener('click', () => {
+			themeToggle!!.addEventListener('click', () => {
 				htmlElement.classList.toggle('dark');
 				if (htmlElement.classList.contains('dark')) {
 					localStorage.setItem('theme', 'dark');

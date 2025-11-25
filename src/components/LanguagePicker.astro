@@ -1,0 +1,23 @@
+---
+import { languages } from '../i18n/ui';
+import { defaultLang } from '../i18n/ui';
+---
+<div class="relative">
+    <select id="language-picker" class="p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200">
+        {Object.entries(languages).map(([lang, label]) => (
+            <option value={lang}>{label}</option>
+        ))}
+    </select>
+</div>
+<script>
+    const languagePicker = document.getElementById('language-picker')!!;
+    languagePicker.addEventListener('change', (event) => {
+        const lang = event.target.value;
+        const { pathname } = window.location;
+        const newPath = `/${lang}${pathname.substring(pathname.indexOf('/', 1))}`;
+        window.location.pathname = newPath;
+    });
+
+    const lang = window.location.pathname.split('/')[1] || defaultLang;
+    languagePicker.value = lang;
+</script>
