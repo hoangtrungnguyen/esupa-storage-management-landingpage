@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
 import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 import { languages } from '../../i18n/ui';
 
@@ -14,6 +15,7 @@ const t = useTranslations(lang);
 ---
 
 <Layout title={t('contact.title')}>
+    <Header/>
     <main>
         <div class="relative isolate bg-white dark:bg-gray-900">
             <div class="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
