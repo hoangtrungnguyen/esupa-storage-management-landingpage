@@ -2,61 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --color-primary: #0061A4;
-  --color-on-primary: #FFFFFF;
-  --color-secondary: #535F70;
-  --color-on-secondary: #FFFFFF;
-  --color-tertiary: #6B5778;
-  --color-on-tertiary: #FFFFFF;
-  --color-surface: #FDFBFF;
-  --color-on-surface: #1A1C1E;
-  --color-surface-container: #F3F4F8;
-  --color-on-surface-variant: #43474E;
-  --color-outline: #73777F;
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .glass {
+    @apply bg-white/70 dark:bg-gray-900/70 backdrop-blur-lg border border-white/20 dark:border-white/10;
+  }
+
+  .glass-card {
+    @apply bg-white/50 dark:bg-gray-800/50 backdrop-blur-md border border-gray-200/50 dark:border-gray-700/50 shadow-lg hover:shadow-xl transition-all duration-300;
+  }
 }
 
-.dark:root {
-  --color-primary: #63C3FF;
-  --color-on-primary: #003355;
-  --color-secondary: #B8C8DA;
-  --color-on-secondary: #253140;
-  --color-tertiary: #D5BEE0;
-  --color-on-tertiary: #3A2A47;
-  --color-surface: #121417;
-  --color-on-surface: #E2E2E5;
-  --color-surface-container: #1E2023;
-  --color-on-surface-variant: #C3C7CF;
-  --color-outline: #8D9199;
-}
+@layer components {
+  .gradient-bg {
+    background: radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.15) 0%, rgba(255, 255, 255, 0) 50%),
+      radial-gradient(circle at 100% 0%, rgba(99, 102, 241, 0.1) 0%, rgba(255, 255, 255, 0) 50%);
+  }
 
-body {
-  font-family: 'Inter', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: var(--color-surface);
-  color: var(--color-on-surface);
-}
+  .dark .gradient-bg {
+    background: radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.1) 0%, rgba(17, 24, 39, 0) 50%),
+      radial-gradient(circle at 100% 0%, rgba(99, 102, 241, 0.05) 0%, rgba(17, 24, 39, 0) 50%);
+  }
 
-.dark body {
-  background-color: var(--color-surface);
-  color: var(--color-on-surface);
-}
+  .feature-icon {
+    @apply flex items-center justify-center w-12 h-12 rounded-xl mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3;
+    background-color: theme('colors.primary.50');
+    color: theme('colors.primary.600');
+  }
 
-.gradient-bg {
-    background: linear-gradient(180deg, rgba(238, 242, 255, 0.8) 0%, rgba(255, 255, 255, 1) 100%);
-}
-
-.dark .gradient-bg {
-    background: linear-gradient(180deg, rgba(18, 20, 23, 0.8) 0%, rgba(18, 20, 23, 1) 100%);
-}
-
-.feature-icon {
-    background-color: #EEF2FF; /* Indigo 50 */
-    color: #4F46E5; /* Indigo 600 */
-}
-
-.dark .feature-icon {
-    background-color: #3730A3; /* Indigo 800 */
-    color: #E0E7FF; /* Indigo 200 */
+  .dark .feature-icon {
+    background-color: theme('colors.primary.900');
+    /* Adjusted for opacity/alpha if needed, or use rgba */
+    background-color: rgba(30, 58, 138, 0.2);
+    /* primary-900 with 0.2 opacity approx */
+    color: theme('colors.primary.400');
+  }
 }

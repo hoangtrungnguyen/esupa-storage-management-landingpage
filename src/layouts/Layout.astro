@@ -14,12 +14,12 @@ import "../styles/global.css";
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
 			rel="stylesheet"
 		/>
 	</head>
 	<body
-		class="antialiased font-sans bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300"
+		class="antialiased font-sans bg-white dark:bg-gray-950 text-gray-900 dark:text-white transition-colors duration-300 selection:bg-primary-500 selection:text-white"
 	>
 		<button
 			id="theme-toggle"
@@ -85,13 +85,45 @@ import "../styles/global.css";
 <style is:global>
 	:root {
 		--font-inter: "Inter", sans-serif;
+		--font-outfit: "Outfit", sans-serif;
 	}
 	html {
 		font-family: var(--font-inter);
+		scroll-behavior: smooth;
+	}
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-family: var(--font-outfit);
 	}
 	body {
 		margin: 0;
 		width: 100%;
 		height: 100%;
+		overflow-x: hidden;
+	}
+
+	/* Custom Scrollbar */
+	::-webkit-scrollbar {
+		width: 10px;
+	}
+	::-webkit-scrollbar-track {
+		background: transparent;
+	}
+	::-webkit-scrollbar-thumb {
+		background: #cbd5e1;
+		border-radius: 5px;
+	}
+	.dark ::-webkit-scrollbar-thumb {
+		background: #334155;
+	}
+	::-webkit-scrollbar-thumb:hover {
+		background: #94a3b8;
+	}
+	.dark ::-webkit-scrollbar-thumb:hover {
+		background: #475569;
 	}
 </style>
